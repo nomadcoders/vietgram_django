@@ -8,16 +8,16 @@ from django.urls import reverse
 
 
 def index(request):
-    if request.user.is_authenticated():
-        response = HttpResponse('Feed')
+    if request.user.is_authenticated:
+        return render(request, 'feed.html')
     else:
         response = HttpResponseRedirect(reverse('login'))
     return response
 
 
 def login(request):
-    if not request.user.is_authenticated():
-        response = HttpResponse('Log in.')
+    if not request.user.is_authenticated:
+        return render(request, 'login.html')
     else:
         response = HttpResponseRedirect(reverse('index'))
     return response
