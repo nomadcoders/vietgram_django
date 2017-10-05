@@ -2,11 +2,12 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 
-# 1) Render the template with render function (line one)
-# 2) Create a folder named 'static' and another named 'templates'
-# 3) Add STATIC_DIRS to settings.py (look on github)
-# 4) Modifie TEMPLATE DIRS on settings.py (look on github)
-# 5) Add template tags to your html (look on github)
+# 0) Play some music
+# 1) Create 'partials' folder inside of 'templates' folder
+# 2) Move <nav> and <footer> to nav.html and footer.html (dont forget to load static)
+# 3) Create base.html and include nav and footer and create title block and content block
+# 4) Create feed.html and then extend from 'base.html' and put the <main id="feed"> inside of the content block
+# 5) Enjoy :)
 
 
 def index(request):
