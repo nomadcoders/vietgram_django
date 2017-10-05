@@ -2,7 +2,7 @@
 <main id="profile">
     <header class="profile__header">
         <div class="profile__column">
-            <img src="{{MEDIA_URL}}/{{user.profile_photo}}" />
+            <img src="{{user.profile_photo.url}}" />
         </div>
         <div class="profile__column">
             <div class="profile__title">
@@ -24,7 +24,7 @@
             <p class="profile__bio">
                 <span class="profile__full-name">
                         {{user.get_full_name}}
-                    </span> {{user.bio}}
+                    </span> {% if user.bio %}{{user.bio}}{% endif %}
                 <a href="{{user.website}}">{{user.website}}</a>
             </p>
         </div>

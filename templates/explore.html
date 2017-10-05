@@ -1,45 +1,20 @@
  {% extends 'base.html' %} {%block title%}Explore{%endblock title%} {% block content%}
 <main id="explore">
     <ul class="explore__users">
+        {% for user in users %}
         <li class="explore__user">
-
             <div class="explore__user-column">
-                <img src="images/avatar.jpg" class="explore__avatar" />
+                <img src="{{user.profile_photo.url}}" class="explore__avatar" />
                 <div class="explore__info">
-                    <span class="explore__username">inthetiger</span>
-                    <span class="explore__full-name">Lynn Park</span>
+                    <span class="explore__username">{{user.username}}</span>
+                    <span class="explore__full-name">{{user.get_full_name}}</span>
                 </div>
             </div>
             <div class="explore__user-column">
                 <button>Follow</button>
             </div>
         </li>
-        <li class="explore__user">
-
-            <div class="explore__user-column">
-                <img src="images/avatar.jpg" class="explore__avatar" />
-                <div class="explore__info">
-                    <span class="explore__username">inthetiger</span>
-                    <span class="explore__full-name">Lynn Park</span>
-                </div>
-            </div>
-            <div class="explore__user-column">
-                <button>Follow</button>
-            </div>
-        </li>
-        <li class="explore__user">
-
-            <div class="explore__user-column">
-                <img src="images/avatar.jpg" class="explore__avatar" />
-                <div class="explore__info">
-                    <span class="explore__username">inthetiger</span>
-                    <span class="explore__full-name">Lynn Park</span>
-                </div>
-            </div>
-            <div class="explore__user-column">
-                <button>Follow</button>
-            </div>
-        </li>
+        {% endfor %}
     </ul>
 </main>
 {% endblock content%}

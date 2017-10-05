@@ -29,7 +29,11 @@ def login(request):
 
 def explore(request):
     if request.user.is_authenticated:
-        return render(request, 'explore.html')
+        users = models.User.objects.all()
+        context = {
+            'users': users
+        }
+        return render(request, 'explore.html', context)
     else:
         response = HttpResponseRedirect(reverse('login'))
     return response
@@ -37,10 +41,10 @@ def explore(request):
 
 def profile(request):
     if request.user.is_authenticated:
-        potato = {
+        context = {
             'user': request.user
         }
-        return render(request, 'profile.html', potato)
+        return render(request, 'profile.html', context)
     else:
         response = HttpResponseRedirect(reverse('login'))
     return response
