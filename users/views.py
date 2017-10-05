@@ -29,7 +29,7 @@ def login(request):
 
 def explore(request):
     if request.user.is_authenticated:
-        users = models.User.objects.all()
+        users = models.User.objects.exclude(id=request.user.id)
         context = {
             'users': users
         }
@@ -39,10 +39,11 @@ def explore(request):
     return response
 
 
-def profile(request):
+def profile(request, username_from_url):
     if request.user.is_authenticated:
+        profile_user = models.User.objects.get(username=username_from_url)
         context = {
-            'user': request.user
+            'profile_user': profile_user
         }
         return render(request, 'profile.html', context)
     else:

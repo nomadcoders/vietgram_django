@@ -21,7 +21,7 @@ urlpatterns = [
         name='explore'
     ),
     url(
-        regex=r'^profile/$',
+        regex=r'^(?P<username_from_url>.+)/$',
         view=user_views.profile,
         name='profile'
     ),

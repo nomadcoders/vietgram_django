@@ -25,6 +25,7 @@
 
 .profile__column:first-child img {
   border-radius: 50%;
+  max-width: 50%;
   transform-style: preserve-3d;
   transition: transform 0.5s linear;
   animation: rotateLynn 1s linear infinite;

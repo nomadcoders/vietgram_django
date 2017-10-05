@@ -2,11 +2,11 @@
 <main id="profile">
     <header class="profile__header">
         <div class="profile__column">
-            <img src="{{user.profile_photo.url}}" />
+            <img src="{{profile_user.profile_photo.url}}" />
         </div>
         <div class="profile__column">
             <div class="profile__title">
-                <h3 class="profile__username">{{user.username}}</h3>
+                <h3 class="profile__username">{{profile_user.username}}</h3>
                 <a href="edit-profile.html">Edit profile</a>
                 <i class="fa fa-cog fa-lg"></i>
             </div>
@@ -23,9 +23,9 @@
             </ul>
             <p class="profile__bio">
                 <span class="profile__full-name">
-                        {{user.get_full_name}}
-                    </span> {% if user.bio %}{{user.bio}}{% endif %}
-                <a href="{{user.website}}">{{user.website}}</a>
+                        {{profile_user.get_full_name}}
+                    </span> {% if profile_user.bio %}{{profile_user.bio}}{% endif %}
+                <a href="{{profile_user.website}}">{{profile_user.website}}</a>
             </p>
         </div>
     </header>
