@@ -13,5 +13,15 @@ urlpatterns = [
         view=user_views.login,
         name='login'
     ),
+    url(
+        regex=r'^explore/$',
+        view=user_views.explore,
+        name='explore'
+    ),
+    url(
+        regex=r'^profile/$',
+        view=user_views.profile,
+        name='profile'
+    ),
     url(r'^admin/', admin.site.urls),
 ]
