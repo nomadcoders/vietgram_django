@@ -12,10 +12,10 @@ def like_image(request, image_id):
         existing_like.delete()
         response = HttpResponse(status=202)
     except models.Like.DoesNotExist:
-        image = models.Image.objects.get(id=image_id)
+        found_image = models.Image.objects.get(id=image_id)
         new_like = models.Like.objects.create(
             user=request.user,
-            image=image
+            image=found_image
         )
         new_like.save()
         response = HttpResponse(status=200)

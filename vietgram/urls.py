@@ -29,7 +29,7 @@ urlpatterns = [
         name='like_image'
     ),
     url(
-        regex=r'^(?P<username_from_url>.+)/$',
+        regex=r'^profile/(?P<username_from_url>.+)/$',
         view=user_views.profile,
         name='profile'
     )
