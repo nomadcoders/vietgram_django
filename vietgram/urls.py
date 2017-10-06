@@ -20,7 +20,7 @@ urlpatterns = [
         view=user_views.explore,
         name='explore'
     ),
-    url(r'^admin/', admin.site.urls),
+    url(r'^nicoladmin/', admin.site.urls),
     url(
         regex=r'^(?P<username_from_url>.+)/$',
         view=user_views.profile,

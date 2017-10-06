@@ -17,7 +17,7 @@ class Image(models.Model):
 class Like(models.Model):
 
     user = models.ForeignKey(user_models.User)
-    image = models.ForeignKey(Image)
+    image = models.ForeignKey(Image, related_name='likes')
     date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -28,7 +28,7 @@ class Comment(models.Model):
 
     comment = models.TextField()
     user = models.ForeignKey(user_models.User)
-    image = models.ForeignKey(Image)
+    image = models.ForeignKey(Image,  related_name='comments')
     date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

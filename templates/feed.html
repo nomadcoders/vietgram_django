@@ -19,20 +19,13 @@
                         <i class="fa fa-comment-o fa-lg "></i>
                     </span>
             </div>
-            <span class="photo__likes ">45 likes</span>
+            <span class="photo__likes ">{{image.likes.all.count}}</span>
             <ul class="photo__comments ">
+                {% for comment in image.comments.all %}
                 <li class="photo__comment ">
-                    <span class="photo__comment-author ">serranoarevalo</span> love this!
+                    <span class="photo__comment-author ">{{comment.user.username}}</span> {{comment.comment}}
                 </li>
-                <li class="photo__comment ">
-                    <span class="photo__comment-author ">serranoarevalo</span> love this!
-                </li>
-                <li class="photo__comment ">
-                    <span class="photo__comment-author ">serranoarevalo</span> love this!
-                </li>
-                <li class="photo__comment ">
-                    <span class="photo__comment-author ">serranoarevalo</span> love this!
-                </li>
+                {% endfor %}
             </ul>
             <span class="photo__time-ago ">{{image.date|naturaltime}}</span>
             <div class="photo__add-comment-container ">
