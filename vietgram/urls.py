@@ -20,10 +20,10 @@ urlpatterns = [
         view=user_views.explore,
         name='explore'
     ),
+    url(r'^admin/', admin.site.urls),
     url(
         regex=r'^(?P<username_from_url>.+)/$',
         view=user_views.profile,
         name='profile'
-    ),
-    url(r'^admin/', admin.site.urls),
+    )
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

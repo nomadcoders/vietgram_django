@@ -7,8 +7,10 @@
         <div class="profile__column">
             <div class="profile__title">
                 <h3 class="profile__username">{{profile_user.username}}</h3>
+                {% if profile_user.id == user.id %}
                 <a href="edit-profile.html">Edit profile</a>
-                <i class="fa fa-cog fa-lg"></i>
+                <i class="fa fa-cog fa-lg"></i> {% else %}
+                <a href="#">Follow</a> {% endif %}
             </div>
             <ul class="profile__stats">
                 <li class="profile__stat">
@@ -30,6 +32,7 @@
         </div>
     </header>
     <section class="profile__photos">
+        {% comment %}
         <div class="profile__photo">
             <img src="images/feedPhoto.jpg" />
             <div class="profile__photo-overlay">
@@ -42,46 +45,7 @@
                         344
                     </span>
             </div>
-        </div>
-        <div class="profile__photo">
-            <img src="images/feedPhoto.jpg" />
-            <div class="profile__photo-overlay">
-                <span class="overlay__item">
-                            <i class="fa fa-heart"></i>
-                            486
-                        </span>
-                <span class="overlay__item">
-                            <i class="fa fa-comment"></i>
-                            344
-                        </span>
-            </div>
-        </div>
-        <div class="profile__photo">
-            <img src="images/feedPhoto.jpg" />
-            <div class="profile__photo-overlay">
-                <span class="overlay__item">
-                                <i class="fa fa-heart"></i>
-                                486
-                            </span>
-                <span class="overlay__item">
-                                <i class="fa fa-comment"></i>
-                                344
-                            </span>
-            </div>
-        </div>
-        <div class="profile__photo">
-            <img src="images/feedPhoto.jpg" />
-            <div class="profile__photo-overlay">
-                <span class="overlay__item">
-                                    <i class="fa fa-heart"></i>
-                                    486
-                                </span>
-                <span class="overlay__item">
-                                    <i class="fa fa-comment"></i>
-                                    344
-                                </span>
-            </div>
-        </div>
+        </div> {% endcomment %}
     </section>
 </main>
 {% endblock content%}
