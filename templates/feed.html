@@ -23,7 +23,7 @@
             <span class="photo__likes ">{{image.likes.all.count}} like{{image.likes.all.count|pluralize}}</span> {% endif%}
             <ul class="photo__comments ">
                 {% for comment in image.comments.all %}
-                <li class="photo__comment ">
+                <li class="photo__comment">
                     <span class="photo__comment-author ">{{comment.user.username}}</span> {{comment.comment}}
                 </li>
                 {% endfor %}

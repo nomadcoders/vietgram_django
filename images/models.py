@@ -4,7 +4,7 @@ from users import models as user_models
 
 class Image(models.Model):
 
-    author = models.ForeignKey(user_models.User)
+    author = models.ForeignKey(user_models.User, related_name='images')
     description = models.TextField()
     file = models.ImageField()
     date = models.DateTimeField(auto_now_add=True)

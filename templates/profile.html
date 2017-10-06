@@ -32,20 +32,21 @@
         </div>
     </header>
     <section class="profile__photos">
-        {% comment %}
+        {% for image in profile_user.images.all %}
         <div class="profile__photo">
-            <img src="images/feedPhoto.jpg" />
+            <img src="{{image.file.url}}" />
             <div class="profile__photo-overlay">
                 <span class="overlay__item">
                         <i class="fa fa-heart"></i>
-                        486
+                        {{image.likes.all.count}}
                     </span>
                 <span class="overlay__item">
                         <i class="fa fa-comment"></i>
-                        344
+                        {{image.comments.all.count}}
                     </span>
             </div>
-        </div> {% endcomment %}
+        </div>
+        {% endfor %}
     </section>
 </main>
 {% endblock content%}
