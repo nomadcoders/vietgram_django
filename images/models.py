@@ -10,8 +10,15 @@ class Image(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     location = models.CharField(max_length=100)
 
+    @property
+    def is_liked(self):
+        return True
+
     def __str__(self):
         return self.location
+
+    class Meta:
+        ordering = ["-date", ]
 
 
 class Like(models.Model):
