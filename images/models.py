@@ -11,7 +11,7 @@ class Image(models.Model):
     location = models.CharField(max_length=100)
 
     @property
-    def is_liked(self):
+    def is_liked(self, user):
         return True
 
     def __str__(self):
