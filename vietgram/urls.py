@@ -29,6 +29,11 @@ urlpatterns = [
         name='like_image'
     ),
     url(
+        regex=r'^images/(?P<image_id>[\d+])/comment/$',
+        view=image_views.comment_image,
+        name='comment_image'
+    ),
+    url(
         regex=r'^profile/(?P<username_from_url>.+)/$',
         view=user_views.profile,
         name='profile'

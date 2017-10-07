@@ -30,7 +30,7 @@
             </ul>
             <span class="photo__time-ago ">{{image.date|naturaltime}}</span>
             <div class="photo__add-comment-container ">
-                <textarea name="comment " placeholder="Add a comment... "></textarea>
+                <textarea data-id="{{image.id}}" name="comment" class="comment-input" placeholder="Add a comment... "></textarea>
                 <i class="fa fa-ellipsis-h "></i>
             </div>
         </div>

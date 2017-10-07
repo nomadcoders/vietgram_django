@@ -1,5 +1,6 @@
 $(document).ready(function() {
-  var $heart = $(".feedHeart");
+  var $heart = $(".feedHeart"),
+    $commentInput = $(".comment-input");
   $heart.click(function() {
     var imageId = $(this).attr("data-id");
     var heart = $(this);
@@ -15,9 +16,25 @@ $(document).ready(function() {
       }
     });
   });
+  $commentInput.keypress(function(event) {
+    var keyCode = event.keyCode;
+    var imageId = $(this).attr("data-id");
+    if (keyCode === 13) {
+      event.preventDefault();
+      var commentToSend = event.target.value;
+      $(this)
+        .val("")
+        .blur();
+      $.ajax({
+        type: "POST",
+        url: "/images/" + imageId + "/comment/",
+        data: JSON.stringify({
+          comment: commentToSend
+        })
+      });
+    }
+  });
   // TODO:
-  // 1) Get the comment from the textarea
-  // 2) Detect when somebody presses enter
   // 3) Send a POST request to a 'images/{image_id}/comment/
   // 4) Create a new comment in the database
   // 5) Put the new comment on the comment list (<ul>)
