@@ -18,6 +18,12 @@ $(document).ready(function() {
   // TODO:
   // 1) Get the comment from the textarea
   // 2) Detect when somebody presses enter
-  // 3) Send a POST request to a 'images/{image_id}/comment
+  // 3) Send a POST request to a 'images/{image_id}/comment/
   // 4) Create a new comment in the database
+  // 5) Put the new comment on the comment list (<ul>)
+  // YOU (DAVID ALSO):
+  // 1) Create a URL for 'images/{image_id}/comment
+  // 2) Create a view for that url
+  // 3) Find the image with the 'image_id' variable
+  // 4) Create a new comment with the request.POST, the request.user and the found image
 });

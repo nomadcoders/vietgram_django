@@ -21,3 +21,8 @@ def like_image(request, image_id):
         response = HttpResponse(status=200)
 
     return response
+
+
+def comment_image(request, image_id):
+
+    comment = request.POST['comment']
