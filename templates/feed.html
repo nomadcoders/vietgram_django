@@ -21,7 +21,7 @@
             </div>
             {% if image.likes.all.count > 0 %}
             <span class="photo__likes ">{{image.likes.all.count}} like{{image.likes.all.count|pluralize}}</span> {% endif%}
-            <ul class="photo__comments ">
+            <ul class="photo__comments">
                 {% for comment in image.comments.all %}
                 <li class="photo__comment">
                     <span class="photo__comment-author ">{{comment.user.username}}</span> {{comment.comment}}
@@ -29,7 +29,7 @@
                 {% endfor %}
             </ul>
             <span class="photo__time-ago ">{{image.date|naturaltime}}</span>
-            <div class="photo__add-comment-container ">
+            <div class="photo__add-comment-container">
                 <textarea data-id="{{image.id}}" name="comment" class="comment-input" placeholder="Add a comment... "></textarea>
                 <i class="fa fa-ellipsis-h "></i>
             </div>

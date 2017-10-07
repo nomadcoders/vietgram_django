@@ -2,6 +2,7 @@ from django.shortcuts import render
 from . import models
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
+from django.http import JsonResponse
 # Create your views here.
 
 
@@ -41,7 +42,10 @@ def comment_image(request, image_id):
 
         new_comment.save()
 
-        response = HttpResponse(status=201)
+        response = JsonResponse({
+            'comment': new_comment.comment,
+            'user': new_comment.user.username
+        })
 
     else:
         response = HttpResponse(status=406)
