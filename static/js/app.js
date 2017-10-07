@@ -28,9 +28,9 @@ $(document).ready(function() {
       $.ajax({
         type: "POST",
         url: "/images/" + imageId + "/comment/",
-        data: JSON.stringify({
+        data: {
           comment: commentToSend
-        })
+        }
       });
     }
   });

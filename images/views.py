@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from . import models
 from django.http import HttpResponse
+from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 
 
@@ -23,6 +24,26 @@ def like_image(request, image_id):
     return response
 
 
+@csrf_exempt
 def comment_image(request, image_id):
 
-    comment = request.POST['comment']
+    comment_to_save = request.POST.get('comment', None)
+
+    if comment_to_save is not None:
+
+        image = models.Image.objects.get(id=image_id)
+
+        new_comment = models.Comment.objects.create(
+            comment=comment_to_save,
+            user=request.user,
+            image=image
+        )
+
+        new_comment.save()
+
+        response = HttpResponse(status=201)
+
+    else:
+        response = HttpResponse(status=406)
+
+    return response
